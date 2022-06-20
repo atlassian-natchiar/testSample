@@ -39,3 +39,11 @@ jobs:
     # Runs a single command using the runners shell
     - name: Send second Job
       run: echo "Hello Second job ran successfully"
+      
+  sequentialJob:
+    runs-on: ubuntu-latest
+    steps:
+    - name: SequentialJob
+      run: echo "This is a sequential Job"
+      needs: test
+    
