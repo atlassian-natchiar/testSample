@@ -42,8 +42,9 @@ jobs:
       
   sequentialJob:
     runs-on: ubuntu-latest
+    needs: test
     steps:
     - name: SequentialJob
       run: echo "This is a sequential Job"
-      needs: test
+      
     
