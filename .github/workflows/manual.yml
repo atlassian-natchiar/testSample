@@ -53,5 +53,10 @@ jobs:
     steps:
     - name: SequentialJob
       run: echo "This is a sequential Job"
+  lastJob:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Last Independent Job
+      run: echo "This is a independent Job"
       
     
