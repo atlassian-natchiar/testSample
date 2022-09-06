@@ -28,6 +28,8 @@ jobs:
         run: |
           echo Add other actions to build,
           echo test, and deploy your project.
-  
+          
   docker:
-      - uses: atlassian-natchiar/emptyrepo/.github/workflows/main.yml
+      # Reusable workflow
+      uses: atlassian-natchiar/emptyrepo/.github/workflows/main.yml@main
+      
