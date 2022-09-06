@@ -30,4 +30,4 @@ jobs:
           echo test, and deploy your project.
   
   docker:
-      - uses: atlassian-natchiar/sourcetreewin/.github/workflows/build_test_scan.yml
+      - uses: atlassian-natchiar/sourcetreewin/.github/workflows/build_test_scan.yml@main
