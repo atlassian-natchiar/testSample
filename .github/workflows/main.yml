@@ -7,6 +7,8 @@ jobs:
   job1:
     name: build
     runs-on: ubuntu-latest
+    outputs:
+      output_filename: ${{ steps.output_filename_generation.outputs.artifactname}}
 
     steps:
       - uses: actions/checkout@v2
@@ -21,6 +23,12 @@ jobs:
       - name: Hello world
         run: echo "execitededdeded"
         
+      - name: Output File name
+        id: output_filename_generation
+        run: |
+          $tagvar="SourceTreeReleaseArchive_${{ github.sha }}.zip"
+          echo "::set-output name=artifactname::$tagvar"
+        
   staging: 
     name: Deploy to staging
     needs: job1
@@ -32,8 +40,10 @@ jobs:
     # Deploy to App Service Linux
       - name: Deploy to Azure WebApp
         id: deploy_staging
-        uses: actions/checkout@v2
-        with:
-          slot-name: staging
+#        uses: actions/checkout@v2
+#        with:
+#          slot-name: staging
+        run: |
+          echo ${{needs.Package_prep.outputs.output_filename}}
 
     
