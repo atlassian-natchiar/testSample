@@ -2,6 +2,13 @@ name: manual job trigger workflow
 
 on:
   workflow_dispatch:
+   inputs:
+    releasePercentage:
+      description: Rollout Percentage
+      required: true
+    releaseMode:
+        description: ga custom beta 
+        required: true
 
 jobs:
   build_with_test:
