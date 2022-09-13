@@ -47,7 +47,7 @@ jobs:
           
   ga_release: 
     name: Deploy for GA
-    needs: [build_with_test,deploy_to_beta]
+    needs: [build_with_test]
     runs-on: windows-latest
     environment:
       name: staging 
