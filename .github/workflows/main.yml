@@ -31,8 +31,8 @@ jobs:
     steps:
     # Deploy to App Service Linux
       - name: Deploy to Azure WebApp
-        uses: azure/webapps-deploy@v2
         id: deploy_staging
+        uses: actions/checkout@v2
         with:
           slot-name: staging
 
