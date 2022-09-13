@@ -21,7 +21,7 @@ jobs:
           $tagvar="SourceTreeReleaseArchive_${{ github.sha }}.zip"
           echo "::set-output name=artifactname::$tagvar"
         
-  staging: 
+  deploy_to_beta: 
     name: Deploy for Beta
     needs: build_with_test
     runs-on: windows-latest
@@ -40,7 +40,7 @@ jobs:
           
   ga_release: 
     name: Deploy for GA
-    needs: build_with_test
+    needs: deploy_to_beta
     runs-on: windows-latest
     environment:
       name: staging 
