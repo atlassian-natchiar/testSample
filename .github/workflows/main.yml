@@ -44,6 +44,6 @@ jobs:
 #        with:
 #          slot-name: staging
         run: |
-          echo ${{needs.Package_prep.outputs.output_filename}}
+          echo ${{needs.job1.outputs.output_filename}}
 
     
