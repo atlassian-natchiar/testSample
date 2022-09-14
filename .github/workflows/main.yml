@@ -24,7 +24,7 @@ jobs:
         run: |
           echo "execitededdeded"
           $mode_of_release="${{ github.event.inputs.releaseMode}}"
-          if ( "$mode_of_release" == "beta")
+          if ( $mode_of_release.equals("beta") )
           {
           echo "Build"
           echo ${{needs.build_with_test.outputs.output_filename}}
