@@ -21,7 +21,18 @@ jobs:
     steps:
 
       - name: Hello world
-        run: echo "execitededdeded"
+        run: |
+          echo "execitededdeded"
+          $mode_of_release="${{ github.event.inputs.releaseMode}}"
+          if ( "$mode_of_release" == "beta")
+          {
+          echo "Build"
+          echo ${{needs.build_with_test.outputs.output_filename}}
+          }
+          else
+          {
+          echo "Skipping build"
+          }
         
       - name: Output File name
         id: output_filename_generation
