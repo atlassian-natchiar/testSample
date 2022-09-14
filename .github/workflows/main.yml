@@ -43,12 +43,15 @@ jobs:
 #        with:
 #          slot-name: staging
         run: |
-          if (${{ github.event.inputs.releaseMode}} == "beta") then
+          if (${{ github.event.inputs.releaseMode}} == beta)
+          {
           echo "Beta Release"
           echo ${{needs.build_with_test.outputs.output_filename}}
+          }
           else
+          {
           echo "Skipping Beta Release"
-          fi
+          }
           
   ga_release: 
     name: Deploy for GA
