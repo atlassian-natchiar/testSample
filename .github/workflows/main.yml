@@ -7,6 +7,7 @@ on:
       description: Rollout Percentage
       required: true
     releaseMode:
+        type: string
         description: ga beta 
         required: true
 
@@ -43,7 +44,8 @@ jobs:
 #        with:
 #          slot-name: staging
         run: |
-          if (${{ github.event.inputs.releaseMode}} == beta)
+          $mode_of_release = ${{ github.event.inputs.releaseMode}}
+          if ( $mode_of_release == "beta")
           {
           echo "Beta Release"
           echo ${{needs.build_with_test.outputs.output_filename}}
