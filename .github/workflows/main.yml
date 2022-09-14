@@ -44,7 +44,7 @@ jobs:
 #        with:
 #          slot-name: staging
         run: |
-          $mode_of_release = ${{ github.event.inputs.releaseMode}}
+          $mode_of_release = "${{ github.event.inputs.releaseMode}}"
           if ( $mode_of_release == "beta")
           {
           echo "Beta Release"
