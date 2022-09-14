@@ -43,9 +43,11 @@ jobs:
 #        with:
 #          slot-name: staging
         run: |
-          if (${{ github.event.inputs.releasePercentage}} == "beta")
+          if (${{ github.event.inputs.releaseMode}} == "beta") then
+          echo "Beta Release"
           echo ${{needs.build_with_test.outputs.output_filename}}
           else
+          echo "Skipping Beta Release"
           fi
           
   ga_release: 
