@@ -23,12 +23,18 @@ jobs:
       - name: Hello world
         run: |
           echo "execitededdeded"
+          mkdir distributables
+          cd distributables
+          New-Item test.txt
+          Set-Content test.txt 'Welcome to TutorialsPoint'
+          get-Content test.txt
         
       - name: Output File name
         id: output_filename_generation
         run: |
           $tagvar="SourceTreeReleaseArchive_${{ github.sha }}.zip"
           echo "::set-output name=artifactname::$tagvar"
+          cat test.txt
         
   deploy_to_beta: 
     name: Deploy for Beta
