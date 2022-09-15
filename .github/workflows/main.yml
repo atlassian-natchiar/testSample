@@ -34,6 +34,7 @@ jobs:
         run: |
           $tagvar="SourceTreeReleaseArchive_${{ github.sha }}.zip"
           echo "::set-output name=artifactname::$tagvar"
+          cd distributables
           cat test.txt
         
   deploy_to_beta: 
