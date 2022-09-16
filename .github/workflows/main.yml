@@ -44,6 +44,8 @@ jobs:
           Compress-Archive -Path ./distributables -DestinationPath ./distributables/SourceTreeReleaseArchive_${{ github.sha }}
           cd distributables
           dir
+          Get-ChildItem -Filter *.zip -Recurse
+
         
   deploy_to_beta: 
     name: Deploy for Beta
