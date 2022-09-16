@@ -71,15 +71,15 @@ jobs:
           echo "Skipping Beta Release"
           }
           
-  ga_release: 
-    name: Deploy for GA
+  ga_release5: 
+    name: Deploy for GA 5%
     needs: [build_with_test,deploy_to_beta]
     runs-on: windows-latest
     environment:
       name: staging 
     steps:
       - name: Deploy GA to s3
-        id: deploy_ga
+        id: deploy_ga5
         
         run: |
           $mode_of_release="${{ github.event.inputs.releaseMode}}"
@@ -92,6 +92,28 @@ jobs:
           else
           {
           echo "Skipping Ga Release"
+          }
+  ga_release10: 
+    name: Deploy for GA 10%
+    needs: [build_with_test,deploy_to_beta,ga_release5]
+    runs-on: windows-latest
+    environment:
+      name: staging 
+    steps:
+      - name: Deploy GA to s3
+        id: deploy_ga
+        
+        run: |
+          $mode_of_release="${{ github.event.inputs.releaseMode}}"
+          if (  $mode_of_release.equals("ga"))
+          {
+           echo "Ga build 10%"
+           echo ${{needs.build_with_test.outputs.output_filename}}
+           echo "Release percentage" ${{ github.event.inputs.releasePercentage}}
+          }
+          else
+          {
+          echo "Skipping Ga Release 10%"
           }
          
     
