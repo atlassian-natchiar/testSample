@@ -36,6 +36,12 @@ jobs:
           echo "::set-output name=artifactname::$tagvar"
           cd distributables
           cat test.txt
+          
+      - name: Create packgae
+        id: create_package
+        run: |
+          Compress-Archive -Path ./distributables -DestinationPath ./distributables/Archives
+          DIR
         
   deploy_to_beta: 
     name: Deploy for Beta
