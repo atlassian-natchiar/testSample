@@ -41,6 +41,7 @@ jobs:
         id: create_package
         run: |
           Compress-Archive -Path ./distributables -DestinationPath ./distributables/Archives
+          Compress-Archive -Path ./distributables -DestinationPath ./distributables/SourceTreeReleaseArchive_${{ github.sha }}
           cd distributables
           dir
         
