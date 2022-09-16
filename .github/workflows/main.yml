@@ -44,7 +44,7 @@ jobs:
           Compress-Archive -Path ./distributables -DestinationPath ./distributables/SourceTreeReleaseArchive_${{ github.sha }}
           cd distributables
           dir
-          Get-ChildItem -Filter *.zip -Recurse | Where-Object { $_.FullName -match SourceTreeReleaseArchive_* }
+          Get-ChildItem -Filter *.zip -Recurse | Where-Object { $_.FullName -match 'SourceTreeReleaseArchive_*' }
         
   deploy_to_beta: 
     name: Deploy for Beta
