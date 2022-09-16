@@ -41,7 +41,8 @@ jobs:
         id: create_package
         run: |
           Compress-Archive -Path ./distributables -DestinationPath ./distributables/Archives
-          DIR
+          cd distributables
+          dir
         
   deploy_to_beta: 
     name: Deploy for Beta
