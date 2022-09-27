@@ -5,8 +5,6 @@ name: "Conditional dependency"
 on:
   workflow_dispatch:
 
-env:
-  branch: ${{ github.ref }}
 
 jobs:
   build:
