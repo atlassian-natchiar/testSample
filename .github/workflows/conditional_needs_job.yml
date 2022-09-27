@@ -1,0 +1,30 @@
+#https://stackoverflow.com/questions/65844033/conditional-needs-in-github-action
+
+name: "Conditional dependency"
+
+on:
+  workflow_dispatch:
+
+env:
+  branch: ${{ github.ref }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "build"
+
+  test:
+    runs-on: ubuntu-latest
+    needs: build
+
+    steps:
+      - run: echo "build"
+
+  deploy:
+    runs-on: ubuntu-latest
+    if: github.ref != 'refs/heads/main'
+    needs: ${{ (contains(env.branch, "main") && [build, test]) || [build] }}
+
+    steps:
+      - run: echo "deploy"
