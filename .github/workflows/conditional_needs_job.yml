@@ -17,10 +17,7 @@ jobs:
           if (  false ){
           echo "false condition"
           }
-         
-      - name: cond2
-        run: |
-          if (  true ) {
+          else {
           echo "true condition"
           }
        
