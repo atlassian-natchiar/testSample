@@ -24,14 +24,14 @@ jobs:
 
   test:
     runs-on: windows-latest
-    needs: build
+    needs: [build]
 
     steps:
       - run: echo "build"
 
   deploy:
     runs-on: windows-latest
-
+    needs: [test]
 
     steps:
       - run: echo "deploy"
