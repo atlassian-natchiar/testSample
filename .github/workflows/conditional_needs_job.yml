@@ -14,14 +14,15 @@ jobs:
     steps:
       - name: Cond1
         run: |
-        if: false
+          if (  false ){
           echo "false condition"
+          }
          
       - name: cond2
         run: |
-        if: true
+          if (  true ) {
           echo "true condition"
-         
+          }
        
 
   test:
