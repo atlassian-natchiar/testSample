@@ -12,11 +12,11 @@ jobs:
     steps:
       - name: Cond1
         run: |
-          if (  1.equals(2) ){
-          echo "false condition"
+          if (  "1".equals("2") ){
+          echo "true condition"
           }
           else {
-          echo "true condition"
+          echo "false condition"
           }
        
 
