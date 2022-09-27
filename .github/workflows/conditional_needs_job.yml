@@ -10,21 +10,30 @@ env:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     steps:
-      - run: echo "build"
+      - name: Cond1
+        run: |
+        if: false
+         echo "false condition"
+         
+      - name: cond2
+        run: |
+        if: true
+          echo "true condition"
+         
+       
 
   test:
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
     needs: build
 
     steps:
       - run: echo "build"
 
   deploy:
-    runs-on: ubuntu-latest
-    if: github.ref != 'refs/heads/main'
-    needs: ${{ (contains(env.branch, "main") && [build, test]) || [build] }}
+    runs-on: windows-latest
+
 
     steps:
       - run: echo "deploy"
