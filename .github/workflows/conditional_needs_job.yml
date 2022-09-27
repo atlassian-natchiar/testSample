@@ -9,11 +9,8 @@ on:
 jobs:
   build1:
     if: ${{ "1".equals("1") }}
-    uses: atlassian-internal/sourcetreewin/.github/workflows/build_test_deploy.yml@EnhanceWorkflows
-    with: 
-      releasemode: "ga"
+    uses: atlassian-natchiar/emptyrepo/.github/workflows/main.yml@main
         
-
   test:
     runs-on: windows-latest
     needs: [build1]
