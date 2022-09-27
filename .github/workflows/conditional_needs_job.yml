@@ -7,7 +7,7 @@ on:
 
 
 jobs:
-  build:
+  build1:
     runs-on: windows-latest
     steps:
       - name: Cond1
@@ -22,7 +22,7 @@ jobs:
 
   test:
     runs-on: windows-latest
-    needs: [build]
+    needs: [build1]
 
     steps:
       - run: echo "build"
